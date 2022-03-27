@@ -23,6 +23,10 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 EMAIL_SUBJECT_PREFIX = config('EMAIL_SUBJECT_PREFIX') + ' '
 SERVER_EMAIL = config('SERVER_EMAIL')
 
+CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=True, cast=bool)
+SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=True, cast=bool)
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default=[], cast=Csv())
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
