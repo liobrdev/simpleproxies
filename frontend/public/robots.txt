@@ -1,0 +1,5 @@
+user-agent: *
+disallow: /api
+disallow: /admin
+disallow: /logs
+disallow: /proxies

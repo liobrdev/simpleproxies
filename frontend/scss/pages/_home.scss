@@ -1,0 +1,14 @@
+.Page--home {
+  max-width: 450px;
+  padding-top: 10px;
+  padding-bottom: 54px;
+  
+  p {
+    line-height: 1.3;
+  }
+  
+  tr td:nth-of-type(2) {
+    padding: 10px 0;
+    line-height: 1.3;
+  }
+}
