@@ -35,6 +35,8 @@ services:
       SECRET_KEY: /run/secrets/django_secret_key
     ports:
       - 8000:8000
+    volumes:
+      - ./api/static/:/api/static/:rw
     depends_on:
       - db_logger
       - redis
@@ -83,6 +85,7 @@ services:
       - ./nginx/etc/nginx/proxy_params:/etc/nginx/proxy_params:ro
       - ./certbot/var/www/certbot/:/var/www/certbot/:ro
       - ./certbot/etc/letsencrypt/:/etc/letsencrypt/:ro
+      - ./api/static/:/var/www/api/static/:ro
     depends_on:
       - api
       - frontend
