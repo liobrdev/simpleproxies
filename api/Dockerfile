@@ -14,7 +14,4 @@ RUN pip install --upgrade pip
 COPY . .
 RUN pip install -r requirements.txt
 
-# Collect static files (for admin page, DRF browsable API, etc.)
-RUN python3 manage.py collectstatic
-
 EXPOSE 8000
