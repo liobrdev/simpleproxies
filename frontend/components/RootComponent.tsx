@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 
 const description = (
-  "Simple API to retrieve SSL proxies, " +
+  "Microservice to retrieve SSL proxies, " +
   "w/ CORS headers enabled to allow requests via browser."
 );
 

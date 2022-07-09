@@ -1,2 +1,2 @@
 # simpleproxies
-Proxy retrieval application built with Django REST Framework and Next.js
+Proxy retrieval microservice built with Flask and Next.js.

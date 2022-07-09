@@ -7,6 +7,10 @@ import { withRouter, NextRouter } from 'next/router';
 import { IBreadcrumbListItem } from '@/types';
 
 
+const apiUrl = process.env.NODE_ENV === 'development' ?
+  'http://localhost:8000/api/proxies' : 'https://simpleproxies.app/proxies';
+
+
 class Home extends Component<Props> {
   render() {
     const breadcrumbList: IBreadcrumbListItem[] = [
@@ -59,7 +63,7 @@ class Home extends Component<Props> {
             <tbody>
               <tr>
                 <td>
-                  <Link href={{ pathname: '/proxies' }}>
+                  <Link href={apiUrl}>
                     <a>/proxies/</a>
                   </Link>
                   &nbsp;&nbsp;&nbsp;&nbsp;
@@ -72,21 +76,7 @@ class Home extends Component<Props> {
             </tbody>
           </table>
           <div className='Footer Footer--home'>
-            <div className='FooterLinks'>
-              <span>&copy; {year}</span>
-              &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-              <Link href={{ pathname: '/privacy' }}>
-                <a className='FooterLink FooterLink--privacy'>
-                  Privacy Policy
-                </a>
-              </Link>
-              &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-              <Link href={{ pathname: '/terms' }}>
-                <a className='FooterLink FooterLink--terms'>
-                  Terms and Conditions
-                </a>
-              </Link>
-            </div>
+            <div className='FooterLinks'><span>&copy; {year}</span></div>
           </div>
         </main>
       </>

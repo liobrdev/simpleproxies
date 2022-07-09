@@ -1,4 +1,4 @@
-FROM python:3.9-slim-bullseye
+FROM python:3.10-slim-buster@sha256:e826527702aa0f69734a796bc950943106c6edf78e6c7ffc13c4d70d4025fa15
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -13,5 +13,8 @@ WORKDIR /api
 RUN pip install --upgrade pip
 COPY . .
 RUN pip install -r requirements.txt
+
+ENV FLASK_APP=app
+ENV FLASK_ENV=production
 
 EXPOSE 8000

@@ -1,6 +1,3 @@
-from random import choices
-
-
 USER_AGENT_DICTS = [
     {"percent":"14.6%","useragent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36","system":"Chrome 99.0 Win10"},
     {"percent":"7.9%","useragent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36","system":"Chrome 98.0 Win10"},
@@ -66,34 +63,4 @@ USER_AGENT_DICTS = [
     {"percent":"0.2%","useragent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36","system":"Chrome 97.0 Linux"},
     {"percent":"0.2%","useragent":"Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0","system":"Firefox 97.0 Linux"},
     {"percent":"0.2%","useragent":"Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0","system":"Firefox 97.0 Linux"},
-]
-
-
-def calculate_cumulative_weights(weights: list[float]) -> list[float]:
-    cumulative_weights: list[float] = []
-
-    for index, weight in enumerate(weights):
-        try:
-            cumulative_weights.append(weight + cumulative_weights[index - 1])
-        except IndexError:
-            cumulative_weights.append(weight)
-    
-    return cumulative_weights
-
-
-USER_AGENT_DICTS.reverse()
-
-user_agents = [a['useragent'] for a in USER_AGENT_DICTS]
-
-ua_relative_weights = [float(a['percent'][:-1]) for a in USER_AGENT_DICTS]
-
-ua_cumulative_weights = calculate_cumulative_weights(ua_relative_weights)
-
-def get_user_agent() -> str:
-    return choices(user_agents, cum_weights=ua_cumulative_weights)[0]
-
-
-__all__ = [
-    'user_agents', 'ua_relative_weights', 'ua_cumulative_weights',
-    'get_user_agent',
 ]

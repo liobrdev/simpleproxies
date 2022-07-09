@@ -1,15 +1,13 @@
 # api
 __pycache__/
-*.py[cod]
-api/.env
-api/secrets
-api/static/*
+api/*.py[cod]
+api/.mypy_cache/
+api/.pytest_cache/
+api/instance/
+api/venv/
 
 # certbot
 /certbot
-
-# db
-db_logger/var/lib/postgresql/data
 
 # frontend
 frontend/.next
